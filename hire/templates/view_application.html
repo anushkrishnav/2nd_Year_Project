@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="title">View Application</h1>
+
+    <h2 class="subtitle">{{ application.job.title }}</h2>
+
+    <small>Date added: {{ application.created_at }}</small>
+   
+    <p class="card-text">{{ application.email }}</p>
+    <p class="card-text">{{ application.phone }}</p>
+    <p class="card-text">{{ application.experience }}</p>
+
+    <h2 class="subtitle">Conversation</h2>
+
+    {% for message in application.conversationmessages.all %}
+        <div class="notification">
+            <b>{{message.created_by.username }} - {{ message.created_at|timesince }} ago</b>
+            
+            {{ message.content }}
+        </div>
+    {% empty %}
+        <p>No messages yet...</p>
+
+        <hr>
+    {% endfor %}
+
+    
+
+    <form method="post" action=".">
+        {% csrf_token %}
+
+        <div class="field">
+            <div class="control">
+                <textarea class="textarea" placeholder="Your Message" name="content" id="id_content"></textarea>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <button class="button btn-success">Send</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

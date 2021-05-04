@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1 class="text-center mb-4">Search results </h1>
+
+    {% for job in job_list %}
+	<ul>
+		<div class="card border-dark mb-3" style="width: 100%;">
+			<div class="row no-gutters">
+			  <div class="col-md-4">
+				{% if job.header_image %}
+				<img src="{{ job.header_image.url }}" class="card-img" alt="...">
+				{% endif %}
+			  </div>
+			  <div class="col-md-8">
+				<div class="card-body">
+					<h5 class="card-title"><a href="{% url 'job-detail' job.pk %}">{{ job.title }}</a></h5>
+					<h6 class="card-subtitle mb-2 text-muted"> {{ job.employer.first_name|title }} {{ job.employer.last_name|title }}</h6>
+				  <p class="card-text">{{ job.snippet }}</p>
+				  <p class="card-text"><small class="text-muted">{{ job.posted }}</small></p>
+				</div>
+			  </div>
+			</div>
+		  </div>
+	</ul>
+	{% endfor %}
+
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ job.title }}</h1>
+<small>Posted By: {{ job.employer.first_name }} {{ job.employer.last_name }}</small><br/>
+<small>{{ job.posted }}</small>
+<hr>
+<br/>
+<p>Description: {{ job.description}}</p>
+<p>Requirements: {{ job.requirement }}</p>
+<p>Work Condition: {{ job.workCondition }}</p>
+
+
+
+{% if user.id == job.employer.id %}
+    <br/><br/>
+    <div class="row">
+        <div class="col-sm-12 text-left">
+            <button type="button" id="btnSearch" class="btn btn-warning" ><a href="{% url 'update_job' job.pk %}">Update Job Post</a></button>
+            <button type="button" id="btnClear" class="btn btn-success" ><a href="{% url 'delete_job' job.pk %}">Delete Job Post</a></button>
+        </div>
+    </div>
+    <br>
+    <br>
+{% endif %}
+
+{% if user.is_employer is False %}
+<br>
+<br>
+<button type="button" id="btnSearch" class="btn btn-danger" ><a href="{% url 'apply_for_job' job.pk %}">Apply for job</a></button>
+<br>
+<br>
+
+{% endif %}
+
+<br>
+<button type="button" id="btnSearch" class="btn btn-dark" ><a href="{% url 'home' %}">Back</a></button>
+
+{% endblock %}

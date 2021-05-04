@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+	{{ product.description|truncatewords:155 }}
+{% endblock %}
+{% block title %}
+	{{ product.name }} - Hiring Agency
+{% endblock %}
+{% block content %}
+	<div>
+		<div class="row my_prod_row_class">
+				<p class="text-center text-justify"><a href="{% url 'home' %}">Home</a> | <a href="{% url 'shop:allProdCat' %}">Our Plans</a> | {{product.name}}</p>
+		</div>
+		<div class="container">
+			<br>
+			<div class="row mb-2">
+				<div class="col-6 col-sm-6 col-md-6 col-lg-6 text-center">
+					<div class="card" style="min-width: 15rem;">
+						<img class="img-fluid plan_page" src="{{product.image.url}}" alt="{{product.name}}">
+					</div>
+				</div>
+				<div class="col-6 col-sm-6 col-md-6 col-lg-6">
+					<div>
+						<h1 class="my_prod_title m">{{product.name}}</h1>
+						<p>€{{product.price}}</p>
+						<p class="text-justify my_prod_text">{{product.description}}</p>
+						{% if product.stock == 0%}
+							<p class="text-justify my_prod_text"><b>Already Purchased</b></p>
+						{% else %}
+							<a class="btn btn-success" href="{% url 'cart:add_cart' product.id %}">Add to Cart</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

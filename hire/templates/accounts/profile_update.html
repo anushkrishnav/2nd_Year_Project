@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br>
+        <input class="btn btn-success" type="submit" value="Update">
+    </form>
+
+    <br>
+    <button type="button" class="btn btn-primary"><a href="{% url 'profile' %}">Go back</button></a>
+{% endblock %}

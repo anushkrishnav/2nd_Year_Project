@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="title">Jobs</h1>
+
+    {% if user.is_employer %}
+        {% for job in user.job_set.all %}
+            <div>
+
+                <div class="text-center mb-3">
+                    <h2>{{ job.title }} - {{ job.posted}}</h1> 
+                </div>
+                <form class="form-inline mt-2 mt-md-0" action="{% url 'search_applicants' %}" method="get">
+                    <input name="q" class="form-control mr-sm-2 mb-4" type="text" placeholder="Search For Applicant" aria-label="Search">
+                </form>
+
+                {% if job.applications %}
+                <h2 class="text-center my-2 text-success">Applicants List </h2>
+
+                    <ul>
+                    {% for applicant in job.applications.all %}
+                        <li><div class="card border-dark mb-3 mb4" style="width: 100%;">
+                            <div class="card-body">
+                            <a href="{% url 'view_applicant_job' job.id %}">{{ applicant.first_name }} {{ applicant.last_name }}</a>
+
+                            </div>
+                        </div>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>You don't have any jobs yet...</p>
+        {% endfor %}
+    {% else %}
+        <h2 class="subtitle">Applications</h2>
+
+        {% for application in request.user.applications.all %}
+            <div class="card border-dark mb-3 mb4" style="width: 100%;">
+                <div class="card-body">
+                    <div class="application">
+                        <a href="{% url 'view_application' application.id %}"> {{ application.job.title }} {{ application.job.posted }}</a>
+                    </div>
+                </div>
+            </div>
+        
+
+        {% empty %}
+            <p>You haven't applied for any jobs yet...</p>
+        {% endfor %}
+
+
+    
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1 class="text-center mb-4">Search results </h1>
+
+				{% for applicant in applicants_list %}
+
+				<ul>
+					<li><div class="card border-dark mb-3 mb4" style="width: 100%;">
+						<div class="card-body">
+						<h5 class="card-title">{{ applicant.job }}</h5>
+						<h6 class="card-subtitle mb-2 text muted">{{ applicant.first_name }} {{ applicant.last_name }}</h6>
+						<p class="card-text">{{ applicant.email }}</p>
+						<p class="card-text">{{ applicant.phone }}</p>
+						<p class="card-text">{{ applicant.experience }}</p>
+						</div>
+					</div>
+					</li>
+				</ul>
+				{% endfor %}
+
+{% endblock %}

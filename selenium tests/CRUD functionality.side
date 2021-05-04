@@ -1,0 +1,300 @@
+{
+  "id": "02782bf4-b153-4294-b59d-fd19912b293e",
+  "version": "2.0",
+  "name": "CRUD functionality",
+  "url": "http://127.0.0.1:8000",
+  "tests": [{
+    "id": "69bf51d0-8f45-448a-98e6-052194e1e3b4",
+    "name": "Untitled",
+    "commands": [{
+      "id": "b17c580b-ed81-4702-8099-57fbb0e21b66",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3514e90d-7925-4f39-bf91-9f7c1e14411f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x849",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7daeca6b-1da0-4bab-b301-3f7a8dcd6f52",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log In",
+      "targets": [
+        ["linkText=Log In", "linkText"],
+        ["css=.btn-outline-warning > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Log In')]", "xpath:link"],
+        ["xpath=//div[@id='navbarNav']/ul/li/button/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/accounts/login/')]", "xpath:href"],
+        ["xpath=//button/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8bc85cf3-f5d9-4fe6-a6f1-1f60f2bde86d",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//div[@id='div_id_username']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "paul"
+    }, {
+      "id": "52343a33-279f-46ed-8b57-44092ac44bc2",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//div[@id='div_id_password']/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Sagrado123"
+    }, {
+      "id": "3f8e4879-282d-40fe-ae0e-9d2db1af75b8",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//div[@id='div_id_password']/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "3b6034a0-e2e6-47b5-afc4-f9e4829d6324",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Post a job",
+      "targets": [
+        ["linkText=Post a job", "linkText"],
+        ["css=#postjob > .text-white", "css:finder"],
+        ["xpath=//a[contains(text(),'Post a job')]", "xpath:link"],
+        ["xpath=//button[@id='postjob']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/jobs/new/')]", "xpath:href"],
+        ["xpath=//button/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Post a job')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5ecbe367-deaa-4fdc-9d59-ac9c98041dfc",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_title",
+      "targets": [
+        ["id=id_title", "id"],
+        ["name=title", "name"],
+        ["css=#id_title", "css:finder"],
+        ["xpath=//input[@id='id_title']", "xpath:attributes"],
+        ["xpath=//p/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b8ab5ffc-2929-4e98-a262-d21c15e4b7d0",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_title",
+      "targets": [
+        ["id=id_title", "id"],
+        ["name=title", "name"],
+        ["css=#id_title", "css:finder"],
+        ["xpath=//input[@id='id_title']", "xpath:attributes"],
+        ["xpath=//p/input", "xpath:position"]
+      ],
+      "value": "Data Science"
+    }, {
+      "id": "08d9a8f8-cc9c-42aa-9c43-fd930963ab2e",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_description",
+      "targets": [
+        ["id=id_description", "id"],
+        ["name=description", "name"],
+        ["css=#id_description", "css:finder"],
+        ["xpath=//textarea[@id='id_description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b497b293-bb86-49c4-b568-807e7485f258",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_description",
+      "targets": [
+        ["id=id_description", "id"],
+        ["name=description", "name"],
+        ["css=#id_description", "css:finder"],
+        ["xpath=//textarea[@id='id_description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Data Science Position Full Time."
+    }, {
+      "id": "1378cb07-9b55-44d4-92dd-e8757e4e7bc1",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_requirement",
+      "targets": [
+        ["id=id_requirement", "id"],
+        ["name=requirement", "name"],
+        ["css=#id_requirement", "css:finder"],
+        ["xpath=//textarea[@id='id_requirement']", "xpath:attributes"],
+        ["xpath=//p[3]/textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a6454145-4d0f-4a78-a883-740299ac9db4",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_requirement",
+      "targets": [
+        ["id=id_requirement", "id"],
+        ["name=requirement", "name"],
+        ["css=#id_requirement", "css:finder"],
+        ["xpath=//textarea[@id='id_requirement']", "xpath:attributes"],
+        ["xpath=//p[3]/textarea", "xpath:position"]
+      ],
+      "value": "2 Year Experience."
+    }, {
+      "id": "a0aa759a-1870-420e-aa18-cf23a7649d6e",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_workCondition",
+      "targets": [
+        ["id=id_workCondition", "id"],
+        ["name=workCondition", "name"],
+        ["css=#id_workCondition", "css:finder"],
+        ["xpath=//textarea[@id='id_workCondition']", "xpath:attributes"],
+        ["xpath=//p[4]/textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "60591861-360d-4d30-8844-c03794de5a3f",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_workCondition",
+      "targets": [
+        ["id=id_workCondition", "id"],
+        ["name=workCondition", "name"],
+        ["css=#id_workCondition", "css:finder"],
+        ["xpath=//textarea[@id='id_workCondition']", "xpath:attributes"],
+        ["xpath=//p[4]/textarea", "xpath:position"]
+      ],
+      "value": "Remote."
+    }, {
+      "id": "299055b7-b2d0-480e-b29a-7f80e9b1f5cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(6)",
+      "targets": [
+        ["css=input:nth-child(6)", "css:finder"],
+        ["xpath=//input[@value='Create']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ca70a8f-dc3f-42cc-ad0b-49d0c43d3bcd",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Data Science",
+      "targets": [
+        ["linkText=Data Science", "linkText"],
+        ["css=ul:nth-child(6) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Data Science')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/jobs/12/')]", "xpath:href"],
+        ["xpath=//ul[3]/li/div/div/h5/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Data Science')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a54c9d31-379a-45f4-827c-637c09ae91cd",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Delete Job Post",
+      "targets": [
+        ["linkText=Delete Job Post", "linkText"],
+        ["css=#btnClear > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Delete Job Post')]", "xpath:link"],
+        ["xpath=//button[@id='btnClear']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/jobs/12/delete/')]", "xpath:href"],
+        ["xpath=//button[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Delete Job Post')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5806803-d436-4a77-96fc-41274e2c1d7d",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(3)",
+      "targets": [
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@value='Confirm']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4cd4a6e6-6b83-44b1-9d3c-33351ee5dc87",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=Paul Walker", "linkText"],
+        ["css=#navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'Paul Walker')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=(//div[@id='navbarNav']/ul/li/a)[4]", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[3]", "xpath:href"],
+        ["xpath=//div/div/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3576d680-67a7-4ab4-b489-4d3cff840fbf",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log Out",
+      "targets": [
+        ["linkText=Log Out", "linkText"],
+        ["css=.dropdown-item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Log Out')]", "xpath:link"],
+        ["xpath=//div[@id='navbarNav']/ul/li/div/a[3]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/accounts/logout/')]", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'Log Out')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "df768ded-ef42-453c-ae71-33f5961eb19e",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f1cef21e-06e8-47c4-8472-f2ec3181a49f",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["69bf51d0-8f45-448a-98e6-052194e1e3b4"]
+  }],
+  "urls": ["http://127.0.0.1:8000/"],
+  "plugins": []
+}

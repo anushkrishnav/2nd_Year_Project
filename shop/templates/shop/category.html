@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+	{% if category %}
+		{{ category.description|truncatewords:155 }}
+	{% else %}
+		Welcome to Hiring Agency.
+	{% endif %}
+{% endblock %}
+{% block title %}
+	{% if category %}
+		{{ category.name }} - Hiring Agency
+	{% else %}
+		See Our Plans - Hiring Agency
+	{% endif %}
+{% endblock %}
+{% block content %}
+	<!--Breadcrumb navigation-->
+	<div class="row my_row_class">
+			<p class="text-center text-justify"><a href="{% url 'home' %}">Home</a> | <a href="{% url 'shop:allProdCat' %}">Our Plans</a></p>
+	</div>
+	<div>
+		<h2 class="text-center my_title">Our Plans</h2>
+		<p class="text-center text-justify">Find the Perfect plan for you.</p>
+	</div>
+
+	<div class="container">
+		<div class="row mx-auto">
+			{% for product in products %}
+				<div class="my_bottom_margin col">
+					<div  class="card text-center title_plan" style="min-width: 18rem;">
+						<h4 class="mt-3 mb-2">{{product.name}}</h4>
+						<a href="{{product.get_absolute_url}}"><img class="img-fluid plans_option_page" src="{{product.image.url}}" alt="{{product.name}}"></a>
+						<div class="card-body">
+							<p>€{{product.price}}</p>
+							<p>{{product.description}}</p>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<br>
+	</div>
+{% endblock %}	

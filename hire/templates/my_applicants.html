@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for job in jobs %}
+
+        {% if job.employer.pk == user.pk %}
+            <div>
+
+                <div class="text-center mb-3">
+                    <h2>{{ job.title }} - {{ job.posted}}</h1>
+                </div>
+                <form class="form-inline mt-2 mt-md-0" action="{% url 'search_applicants' %}" method="get">
+                    <input name="q" class="form-control mr-sm-2 mb-4" type="text" placeholder="Search" aria-label="Search">
+                </form>
+
+                {% if job.applications %}
+                <h2 class="text-center my-2 text-success">Applicants List </h2>
+
+                    <ul>
+                    {% for applicant in job.applications.all %}
+                        <li><div class="card border-dark mb-3 mb4" style="width: 100%;">
+                            <div class="card-body">
+                            <a href="{% url 'view_application' job.id %}">{{ applicant.first_name }} {{ applicant.last_name }}</a>
+
+                            </div>
+                        </div>
+                        </li>
+
+                    {% endfor %}
+
+                    </ul>
+                {% endif %}
+                
+            </div>
+        {% endif %}
+
+    {% endfor %}
+
+	{% if is_paginated %}
+		<ul class="pagination">
+			{% if page_obj.has_previous %}
+			<li class="page-item">
+				<a class="page-link" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Previous</a>
+				</li>
+			{% endif %}
+			<li class="page-item"><a class="page-link" href="#">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a></li>
+		
+			{% if page_obj.has_next %}
+				<li class="page-item">
+				<a class="page-link" href="{{ request.path }}?page={{ page_obj.next_page_number }}">Next</a>
+				</li>
+			{% endif %}
+		</ul>
+
+{% endif %}
+
+{% endblock %}

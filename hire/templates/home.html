@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Hiring Agency{% endblock %}
+
+
+{% block content %}
+<h1 class="text-center">Search</h1>
+<form class="form-inline mt-2 mt-md-0" action="{% url 'search_results' %}" method="get">
+	<input name="q" class="form-control mr-sm-2 mb-4" type="text" placeholder="Search" aria-label="Search">
+
+	{% if cat_menu %}
+	<div class="dropdown">
+		<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		  Categories
+		</button>
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			{% for item in cat_menu %}
+				<a class="dropdown-item" href="{% url 'category' item %}">{{ item }}</a>
+			{% endfor %}
+		</div>
+	  </div>
+	{% endif %}
+</form>
+
+	
+
+	{% if user.is_employer %}
+	<div class="button-container">
+	<button type="button" id="postjob" class="btn btn-success" ><a href="{% url 'create_job' %}" class="text-white">Post a job</a></button>
+	</div>
+	{% endif %}
+
+	<h2 class="text-center my-5 text-success">Job Listings</h2>
+
+
+	{% for job in jobs %}
+	<ul>
+		<div class="card border-dark mb-3" style="width: 100%;">
+			<div class="row no-gutters">
+			  <div class="col-md-4">
+				{% if job.header_image %}
+				<img src="{{ job.header_image.url }}" class="card-img" alt="...">
+				{% endif %}
+			  </div>
+			  <div class="col-md-8">
+				<div class="card-body">
+					<h5 class="card-title"><a href="{% url 'job-detail' job.pk %}">{{ job.title }}</a></h5>
+					<h6 class="card-subtitle mb-2 text-muted"> {{ job.employer.first_name|title }} {{ job.employer.last_name|title }}</h6>
+				  <p class="card-text">{{ job.snippet }}</p>
+				  <p class="card-text"><small class="text-muted">{{ job.posted }}</small></p>
+				</div>
+			  </div>
+			</div>
+		  </div>
+	</ul>
+	{% endfor %}
+
+	{% if is_paginated %}
+		<ul class="pagination">
+			{% if page_obj.has_previous %}
+			<li class="page-item">
+				<a class="page-link" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Previous</a>
+				</li>
+			{% endif %}
+			<li class="page-item"><a class="page-link" href="#">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a></li>
+		
+			{% if page_obj.has_next %}
+				<li class="page-item">
+				<a class="page-link" href="{{ request.path }}?page={{ page_obj.next_page_number }}">Next</a>
+				</li>
+			{% endif %}
+		</ul>
+
+{% endif %}
+
+
+{% endblock %}
+

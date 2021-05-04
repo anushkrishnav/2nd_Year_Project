@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="my-auto mb-2 text-center test-justify"><h2>About Us</h2></div>
+
+
+<br>
+<div class="row mb-2">
+    <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-center">
+        <div class="card" style="min-width: 15rem;">
+            <img class="img-fluid" alt="team" src="{% static 'images/team.jpg'%}">
+        </div>
+    </div>
+    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+        <div>
+            <h1 class="my_prod_title m">{{product.name}}</h1>
+            <p>We at Hiring Agency are all about connecting motivated individual to find their perfect working condition and great salary. We started in 2021 and have been successfully connecting employers and 
+                future employees. We offer great customer support and feedback. We are available on all social media platform. We would like to hear from you if you email us at hiring.agency@email.com
+            </p>
+            <br>
+            <p>We are also looking for motivated Software Developers with any experience. We would love to have new or experienced developers come and help us improve our system. Come join us!</p>
+            <br>
+            <p>Peace and Love, Team Hiring Agency.</p>
+        </div>
+    </div>
+</div>
+
+    
+{% endblock %}
+
+    

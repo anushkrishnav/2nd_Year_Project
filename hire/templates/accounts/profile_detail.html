@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="content-section">
+        <div class="media">
+            <img src="{{ user.profile.image.url }}" alt="" style="height: 200px;" class="rounded-circle  mx-auto d-block">
+            <div class="media-body">
+                <div class="card border-dark mb-3 mb4" style="width: 100%;">
+                    <div class="card-body">
+                        <h2>
+                            {{user.username}}
+                        </h2>
+                        <p>
+                            {{user.first_name|title}}  {{user.last_name|title}}
+                        </p>
+                        <p>
+                            Email: {{ user.email }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card border-dark mb-3 mb4" style="width: 100%;">
+                    <div class="card-body">
+                        {% if user.profile.description %}
+                        <p>
+                            <h3>Description</h3>
+                            {{ user.profile.description }}
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div>
+            {% if user.profile.cv %}
+                <h2>
+                    <h2>CV</h2>
+
+                    <button type="button" id="btnSearch" class="btn btn-success" ><a href="{{ user.profile.cv.url }}" download="{{ user.profile.cv.url }}">Download CV</a></button>
+                    
+                </h2>
+            {% endif %}
+                <button type="button" id="btnSearch" class="btn btn-warning" ><a href="{% url 'profile_update' %}">Update Profile</a></button>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
